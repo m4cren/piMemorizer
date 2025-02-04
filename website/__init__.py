@@ -45,7 +45,8 @@ def create_website():
      def load_user(id):
           return User.query.get(int(id))
 
-     
+     def shutdown_session(exception=None):
+        db.session.remove()
 
      return app
 
