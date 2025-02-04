@@ -1,20 +1,35 @@
+import eventlet
+eventlet.monkey_patch()
 from flask import Flask
 from .extensions import db, migrate, login_manager, socketio, ip_address
 from .sockets import socketio
 from os import path
+import os
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import create_engine
 import pymysql
+
+
+
+
 
 pymysql.install_as_MySQLdb()
 
 def create_website():
 
      app = Flask(__name__)
-     app.config['SECRET_KEY'] = 'secret'
+     app.config['SECRET_KEY'] = 'secret_98479186421642961464692146216321'
+     app.config['SECRET_KEY'] = 'secret_98479186421642961464692146216321'
      app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+     app.config['SQLALCHEMY_POOL_SIZE'] = 10 
+     app.config['SQLALCHEMY_MAX_OVERFLOW'] = 20  
+     app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600  
      
      db.init_app(app)
      migrate.init_app(app, db)
-     socketio.init_app(app)
+     socketio.init_app(app, async_mode='eventlet')
+
+     
 
      from .auth import auth
      from .views import views
@@ -25,8 +40,7 @@ def create_website():
      app.register_blueprint(actions, url_prefix = '/')
      app.register_blueprint(auth, url_prefix = '/')
 
-
-
+  
      from .models import User
 
      create_database(app)
@@ -39,7 +53,6 @@ def create_website():
           return User.query.get(int(id))
 
      
-
      return app
 
 def create_database(app):
