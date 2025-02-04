@@ -1,3 +1,6 @@
+import eventlet
+eventlet.monkey_patch()
+
 from flask import Flask
 from .extensions import db, migrate, login_manager, socketio, ip_address
 from .sockets import socketio
