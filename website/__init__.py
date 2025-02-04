@@ -12,16 +12,11 @@ def create_website():
      app = Flask(__name__)
      app.config['SECRET_KEY'] = 'secret'
      app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-     app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
-         "pool_size": 5,
-         "max_overflow": 2,
-         "pool_timeout": 30,
-         "pool_recycle": 1800
-     }
+    
      
      db.init_app(app)
      migrate.init_app(app, db)
-     socketio.init_app(app)
+     socketio.init_app(app, async_mode='eventlet')
 
      from .auth import auth
      from .views import views
