@@ -15,6 +15,9 @@ def create_website():
      app = Flask(__name__)
      app.config['SECRET_KEY'] = 'secret_98479186421642961464692146216321'
      app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+     app.config['SQLALCHEMY_POOL_SIZE'] = 10  # Number of connections to keep in the pool
+     app.config['SQLALCHEMY_MAX_OVERFLOW'] = 20  # Number of connections that can be created above the pool size
+     app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600  # How often to recycle connections (in seconds)
     
      
      db.init_app(app)
