@@ -10,7 +10,7 @@ pymysql.install_as_MySQLdb()
 def create_website():
 
      app = Flask(__name__)
-     app.config['SECRET_KEY'] = 'secret'
+     app.config['SECRET_KEY'] = 'secret_98479186421642961464692146216321'
      app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     
      
