@@ -1,4 +1,4 @@
-const socket = io.connect('http://192.168.1.20:5000');
+const socket = io.connect('https://pimemorizer.onrender.com/:3306');
 
 const loginCont = document.querySelector('.login-container')
 const signupCont = document.querySelector('.signup-container')
