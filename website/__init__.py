@@ -2,6 +2,7 @@ from flask import Flask
 from .extensions import db, migrate, login_manager, socketio, ip_address
 from .sockets import socketio
 from os import path
+import os
 import pymysql
 
 pymysql.install_as_MySQLdb()
