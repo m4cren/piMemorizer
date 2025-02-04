@@ -10,7 +10,7 @@ def create_website():
 
      app = Flask(__name__)
      app.config['SECRET_KEY'] = 'secret'
-     app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://root:%40%23OctObEr102704@{ip_address}/test_1?charset=utf8'
+     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
      
      db.init_app(app)
      migrate.init_app(app, db)
