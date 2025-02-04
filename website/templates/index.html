@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{{url_for('static', filename = 'styles/index.css')}}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js" integrity="sha512-8BHxHDLsOHx+flIrQ0DrZcea7MkHqRU5GbTHmbdzMRnAaoCIkZ97PqZcXJkKZckMMhqfoeaJE+DNUVuyoQsO3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <title>Document</title>
+</head>
+<body>
+     <div class="background"></div>
+
+     <div class="login-signup-container">
+          <div class="header">
+               <img src="{{url_for('static', filename = 'images/pi_symbol.png')}}" alt="">
+                <h1>Memory Pi Game</h1>
+          </div>
+          <div class="profile-list-container">
+               <h2>Choose a Profile</h2>
+               <ul>
+               
+                    {%if users%}
+                         {%for user in users%}
+                              <li>
+                                   <a onclick="loginUser('{{user.id}}')">{{user.name}}</a>
+                              </li>
+                         {%endfor%}
+                    {%else%}
+                         <h2>No user found</h2>
+                    {%endif%}
+                   
+               </ul>
+          </div>
+          
+          <div class="create-account">
+               <button onclick = "showCreateAccount()">Create new profile</button>
+          </div>
+     </div>
+
+     <div class="create-account-container">
+          <button onclick="hideCreateContainer()"><i class="fa-regular fa-circle-xmark"></i></button>
+          
+          <form action="/signup" method="post">
+               <input type="text" placeholder="Username" name="username">
+               
+               <div class="password-container">
+                    <input type="password" placeholder="Password" name="password1" id="passwordInput1">
+                    <i class="fa-solid fa-eye" onclick="showPassword1()"></i>
+               </div>
+               <div class="password-container">
+                    <input type="password" placeholder="Confirm Password" name="password2" id="passwordInput2">
+                    <i class="fa-solid fa-eye" onclick="showPassword2()"></i>
+               </div>
+              
+               
+               <input type="submit" value="Continue">
+          </form>
+          
+     </div>
+     <div class="login-container">
+          <button onclick="hideLoginContainer()"><i class="fa-regular fa-circle-xmark"></i></button>
+          <h2 class="login-header"></h2>
+          <form method="post" id="loginForm">
+               <div class="password-container">
+                    <input type="password" placeholder="Password" name="password" id="passwordInput">
+                    <i class="fa-solid fa-eye" onclick="showPassword()"></i>
+               </div>
+               <input type="submit" value="Continue">
+          </form>
+     </div>
+     <div class="leaderboards-container">
+
+          <div>
+               <h1>Leaderboards</h1>
+          </div>
+              
+               <ul>
+                    {%if users%}
+                         {%for user in users%}
+                              <li>
+                                   <h3>{{user.name}}</h3>
+                                   <p>{{user.high_score}}</p>
+                              </li>
+                         {%endfor%}
+                    {%else%}
+                         <h2>No user found</h2>
+                    {%endif%}
+
+                  
+               </ul>
+       
+          
+     </div>
+     {% with messages = get_flashed_messages(with_categories = true)%}
+     {% if messages %}
+          {% for category, msg in messages %}
+               {% if category == 'error' %}
+               <div class="prompt-container">
+                    <div class="error-msg">
+                         <h2>Error</h2>
+                         <h3>{{msg}}</h3>
+                         <hr>
+                         <button class="exit-prompt" onclick="exitPrompt()">Try Again</button>
+                    </div> 
+               </div>
+               {% endif %}
+          {% endfor %}
+     {% endif %}
+{% endwith %}
+
+</body>
+
+<script src="{{url_for('static', filename = 'scripts/index.js')}}"></script>
+</html>
