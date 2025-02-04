@@ -13,8 +13,8 @@ def create_website():
      app.config['SECRET_KEY'] = 'secret'
      app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
      app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
-         "pool_size": 20,
-         "max_overflow": 10,
+         "pool_size": 5,
+         "max_overflow": 2,
          "pool_timeout": 30,
          "pool_recycle": 1800
      }
