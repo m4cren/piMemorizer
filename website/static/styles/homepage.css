@@ -25,6 +25,10 @@ body{
      }
 }
 
+.phone-numkey{
+     display: none;
+}
+
 #score-container{
      z-index: 5;
      color: white;
@@ -123,6 +127,7 @@ body{
      }
 }
 
+
 .leaderboards-container{
      position: fixed;
      height: fit-content;
@@ -183,7 +188,7 @@ body{
           flex-direction: column;
           justify-content: flex-end;
           align-items: center;
-          height: 95vh;
+          height: 99vh;
      }
      #score-container{
           z-index: 5;
@@ -192,6 +197,54 @@ body{
           top: 1rem;
           right: 1rem;
      }
+     .phone-numkey{
+          display: flex;
+          flex-direction: column;
+          width: 85vw;
+     
+         
+          border-radius: 0.5rem;
+          height: 45%;
+
+          .row{
+               display: flex;
+               flex-direction: row;
+               justify-content: space-between;
+               flex-grow: 1;
+
+               .key{
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-grow: 1;
+                    
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    margin: 0.5rem;
+                    border-radius: 0.5rem;
+                    font-size: 1.5rem;
+                    font-weight: 100;
+                    background-color: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    color: lightgrey;
+                    transition: 0.2s ease;
+                    box-shadow: -2px 2px 1px rgba(255, 255, 255, 0.2), -3px 3px 4px rgba(255, 255, 255, 0.1), -4px 4px 1px rgba(255, 255, 255, 0.2);
+               }
+               #enterKey{
+                    font-weight: 900;
+                    color: white;
+                    background-color: rgba(255, 255, 255, 0.11);
+                    box-shadow: -2px 2px 1px rgba(255, 255, 255, 0.2), -3px 3px 8px rgba(255, 255, 255, 0.1), -4px 4px 1px rgba(255, 255, 255, 0.2);
+               }
+
+               .key::active{
+                    scale: 1.02;
+                    box-shadow: -1px 1px 1px rgba(255, 255, 255, 0.2), -2px 2px 4px rgba(255, 255, 255, 0.1), -3px 3px 1px rgba(255, 255, 255, 0.2);
+               }
+
+          }
+     }
+     
      
      .pi-value-container{
           position: fixed;
@@ -207,7 +260,7 @@ body{
           justify-content: center;
      
           .pi-value{
-               font-size: 1rem;
+               font-size: 0.9rem;
              
                font-weight: 200;
                color: white;
@@ -276,7 +329,7 @@ body{
                    display: none;
                 }
                 .phone-view{
-                    display: block;
+                    display: none;
                     border: none;
                     background-color: transparent;
                     font-size: 1.5rem;
@@ -295,7 +348,7 @@ body{
           background-color: rgba(255, 255, 255, 0.1);
           border-radius: 1rem;
           backdrop-filter: blur(10px);
-          display: flex;
+          display: none;
           flex-direction: column;
         
      
@@ -306,9 +359,10 @@ body{
                width: 100%;
                background-color: rgba(255, 255, 255, 0.2);
                h1{
-                    padding: 0.5rem 1rem;
+                    padding: 0.5rem;
                     color: white;
                     font-size: 1.25rem;
+                    font-weight: 200;
                }
           }
          
@@ -322,14 +376,17 @@ body{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    align-items: center;
                     color: white;
-                    height: 2rem;
+                    height: 1.5rem;
                     
                     h3{
                          font-weight: 200;
+                         font-size: 0.9rem;
                     }
                     p{
                          font-weight: 100;
+                         font-size: 0.75rem;
                     }
                     
                }
