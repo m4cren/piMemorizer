@@ -3,11 +3,11 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Pi Memorizer Shitsss</title>
      <link rel="stylesheet" href="{{url_for('static', filename = 'styles/homepage.css')}}">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js" integrity="sha512-8BHxHDLsOHx+flIrQ0DrZcea7MkHqRU5GbTHmbdzMRnAaoCIkZ97PqZcXJkKZckMMhqfoeaJE+DNUVuyoQsO3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+     <title>Pi Memorizer ng maangas </title>
+     <link rel="icon" href="{{url_for('static', filename = 'images/icon.gif')}}">
 </head>
 <body>
      <div class="background"></div>
@@ -21,12 +21,34 @@
           <input type="text" id="inputNumber" maxlength="1" >
           <div class="foot">
                <p class="desktop-view">PRESS [SPACE BAR]</p>
-               <button class="phone-view" onclick="sendValueToCheck()"><i class="fa-solid fa-paper-plane"></i></button>
+
           </div>
      </div>
 
      <div class="pi-value-container">
           <h2 class="pi-value">3.</h2>
+     </div>
+
+     <div class="phone-numkey">
+          <div class="row">
+               <div onclick="sendNumber(7)" class="key">7</div>
+               <div onclick="sendNumber(8)" class="key">8</div>
+               <div onclick="sendNumber(9)" class="key">9</div>
+          </div>
+          <div class="row">
+               <div  onclick="sendNumber(4)" class="key">4</div>
+               <div  onclick="sendNumber(5)" class="key">5</div>
+               <div  onclick="sendNumber(6)" class="key">6</div>
+          </div>
+          <div class="row">
+               <div  onclick="sendNumber(3)" class="key">3</div>
+               <div  onclick="sendNumber(2)" class="key">2</div>
+               <div  onclick="sendNumber(1)" class="key">1</div>
+          </div>
+          <div class="row">
+               <div class="key" onclick="sendNumber(0)">0</div>
+               <div class="key" id="enterKey" onclick="sendValueToCheck()">ENTER</div>
+          </div>
      </div>
 
      <div class="leaderboards-container">
