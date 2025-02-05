@@ -244,9 +244,10 @@ body{
      flex-direction: column;
    
 
-     div{
+     .lead-head{
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          align-items: center;
           justify-content: center;
           width: 100%;
           background-color: rgba(255, 255, 255, 0.2);
@@ -254,6 +255,25 @@ body{
                padding: 0.5rem 1rem;
                color: white;
                font-size: 1.25rem;
+          }
+          .label-head{
+               width: 100%;
+               padding: 0.2rem 0.5rem;
+               background-color: rgba(62, 62, 62, 0.268);
+               display: flex;
+               flex-direction: row;
+               justify-content: space-between;
+               p{
+                    color: white;
+                    font-weight: 100;
+                    font-size: 0.9rem;
+               }
+               .scores-head{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 50%;
+               }
           }
      }
     

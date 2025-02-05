@@ -10,6 +10,29 @@
      <link rel="icon" href="{{url_for('static', filename = 'images/icon.gif')}}">
 </head>
 <body>
+     <div class="start-popup">
+          
+          <button onclick="startGame()">START</button>
+
+     </div>
+     <div id="try-again-popup">
+          <button onclick="logout()" id="logout"><i class="fa-solid fa-door-open"></i></button>
+          <div class="game-details">
+               <h2 id="game-score"> </h2>
+               <h2 id="game-speed"> </h2>
+          </div>
+          <button onclick="startGame()">TRY AGAIN</button>
+     </div>
+     <div class="countdown-container">
+          <h1 id="countdown"></h1>
+     </div>
+     <div class="timer-container">
+          <h2 id="hr"></h2>
+          <h2 id="min"></h2>
+          <h2 id="sec"></h2>
+          <h2 id="count"></h2>
+     </div>
+
      <div class="background"></div>
      <h1 id="score-container"></h1>
      <div class="main-container">
@@ -55,6 +78,7 @@
         
                <div>
                     <h1>Leaderboards</h1>
+                    
                </div>
                
                <ul>
@@ -63,6 +87,7 @@
                               <li>
                                    <h3>{{user.name}}</h3>
                                    <p>{{user.high_score}}</p>
+                                   <p>{{user.speed_score}}</p>
                               </li>
                          {%endfor%}
                     {%else%}

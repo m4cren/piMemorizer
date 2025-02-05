@@ -10,12 +10,12 @@ views = Blueprint('views', __name__)
 @views.route('/')
 def index():
 
-     users = User.query.order_by(User.high_score.desc()).all()
+     users = User.query.order_by(User.high_score.desc(), User.speed_score.desc()).all()
      return render_template('index.html', users = users)
 
 @views.route('/homepage')
 @login_required
 def homepage():
-     users = User.query.order_by(User.high_score.desc()).all()
+     users = User.query.order_by(User.high_score.desc(), User.speed_score.desc()).all()
   
      return render_template('homepage.html', users = users)

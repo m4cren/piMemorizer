@@ -54,3 +54,9 @@ def login(name):
                flash('Wrong Password', category='error')
 
      return redirect('/')
+
+@auth.route('/logout')
+@login_required
+def logout():
+     logout_user()
+     return redirect('/')

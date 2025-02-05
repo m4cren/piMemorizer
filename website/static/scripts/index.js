@@ -1,6 +1,10 @@
 
 const socket = io.connect('https://pimemorizer.onrender.com'); 
+<<<<<<< HEAD
 
+=======
+// const socket = io.connect('http://192.168.1.20:5000');
+>>>>>>> e4a9f2e (New Versione)
 
 
 const loginCont = document.querySelector('.login-container')
@@ -64,3 +68,6 @@ function loginUser(id){
  function exitPrompt(){
      document.querySelector('.prompt-container').style.display = 'none'
  }
+
+
+
