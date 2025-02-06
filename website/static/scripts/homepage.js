@@ -180,7 +180,7 @@ function resetTimer() {
      document.getElementById('game-speed').innerHTML = "Speed: ";
      document.getElementById('next-num').innerHTML = "Next Number: ";
      document.getElementById('game-score').innerHTML = "Score: ";
-     document.getElementById('next-num').innerHTML += value_of_pi[i + 1]
+     document.getElementById('next-num').innerHTML += value_of_pi[i]
      document.getElementById('game-speed').innerHTML += `<span>${avgScore.toFixed(2)}</span>`;
      document.getElementById('game-score').innerHTML += `<span>${score}</span>`;
 
