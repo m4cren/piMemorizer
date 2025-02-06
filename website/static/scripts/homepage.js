@@ -26,7 +26,7 @@ window.addEventListener("keydown", function(event){
                
           }else{
                console.log('wrong')
-               i = 0
+               
                
                
                
@@ -60,7 +60,7 @@ function sendValueToCheck(){
                
           }else{
                console.log('wrong')
-               i = 0
+               
                resetTimer()
                socket.emit('update-highscore', {score})
                
@@ -178,12 +178,14 @@ function resetTimer() {
 
      document.getElementById('try-again-popup').style.display = 'flex'
      document.getElementById('game-speed').innerHTML = "Speed: ";
+     document.getElementById('next-num').innerHTML = "Next Number: ";
      document.getElementById('game-score').innerHTML = "Score: ";
+     document.getElementById('next-num').innerHTML += value_of_pi[i + 1]
      document.getElementById('game-speed').innerHTML += `<span>${avgScore.toFixed(2)}</span>`;
      document.getElementById('game-score').innerHTML += `<span>${score}</span>`;
 
      
-     
+     i = 0
      score = 0
      timerrr = false;
      hour = 0;
